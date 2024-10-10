@@ -19,6 +19,7 @@ func AddTransaction(info *api.AddPointsReq) {
 func SpendPoints(info *api.SpendPointsReq) (bool, map[string]int32) {
 	index := 0
 	spending := info.Points
+	// deduct points from least recently added
 	for i, transaction := range transactions {
 		if transaction.Points <= spending {
 			payerInfos[transaction.Payer] -= transaction.Points
@@ -34,6 +35,7 @@ func SpendPoints(info *api.SpendPointsReq) (bool, map[string]int32) {
 	if spending > 0 {
 		return false, nil
 	}
+	// remove points block that has been used up
 	transactions = transactions[index:]
 	return true, payerInfos
 }

@@ -1,0 +1,11 @@
+1. I chose Go as programming language because my main programming language during work is Go so I am familiar with it.
+   Besides, Go standard library, I chose Gin for server side development framework. Gin is designed to be a fast, lightweight HTTP web framework and is often favored for building RESTful APIs and microservices because of its minimal overhead, ease of use, and middleware support.
+   I used Postman for API testing because it offers a user-friendly interface and powerful features that make it a go-to choice for interacting with APIs during development.
+2. I used map to store every payer's points and slice to track every add points transaction.
+   For adding points request, I just need to append transaction slice and add points in payer map.
+   For spending requests, the payer points which is at the head of slice will be deducted. Once the transaction point is used up, it will be removed from the slice.
+   For getting balance requests, I just need to return the payer map info.
+   The advantage of my solution is that all the computation is in memory which is very fast and there is no other dependency for the service.
+   The disadvantage of my solution is that all the data is not persistent since there is no database linked to this system. However, since database needs to be manually set up and configured and this program should be able to run by others without configuration or extra set up, the disadvantage seems unavoidable.
+3. My favorite school project thus far is that to implement a shell using C in my Operating System class. The shell I implemented has many features like command parsing and execution, I/O redirection and piping, signal handling and so on.
+   This is very challenge project because we can only use standard C library and syscall to implement this shell. I am not quite familiar with C before doing the project, but after hours of hours hard work, I learned a lot of C in the process of doing this project. I also get familiar with debugging with gdb and fix memory leak with valgrind.
